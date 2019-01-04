@@ -1,0 +1,18 @@
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.4em;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+svg {
+  height: 20px;
+  width: 20px;
+}
