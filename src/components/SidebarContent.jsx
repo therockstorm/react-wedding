@@ -1,7 +1,8 @@
 import React from 'react'
-import Title from './Title'
+import Link from 'gatsby-link'
+import AppBar from './AppBar'
 
-export default React.memo(({ pages, style, onSelected }) => {
+export default React.memo(({ links, style, onSelected }) => {
   const styles = {
     sidebar: {
       height: '100%',
@@ -14,19 +15,30 @@ export default React.memo(({ pages, style, onSelected }) => {
       display: 'block',
       padding: '16px 0',
       textDecoration: 'none'
+    },
+    divider: {
+      margin: '0px 0',
+      height: 1,
+      backgroundColor: '#DBDBDB'
     }
   }
 
-  const Link = (key, title) => (
-    // eslint-disable-next-line
-    <a key={key} href="#" style={styles.link} onClick={() => onSelected(key)}>
-      {title}
-    </a>
+  const Item = (idx, text, link, last) => (
+    <div key={idx}>
+      <Link to={link} style={styles.link}>
+        {text}
+      </Link>
+      {!last && <div style={styles.divider} />}
+    </div>
   )
 
   return (
-    <Title style={styles.sidebar}>
-      <div style={styles.content}>{pages.map(p => Link(p.key, p.title))}</div>
-    </Title>
+    <AppBar style={styles.sidebar}>
+      <div style={styles.content}>
+        {links.map(l =>
+          Item(l.idx, l.title, l.link, l.idx + 1 === links.length)
+        )}
+      </div>
+    </AppBar>
   )
 })

@@ -1,10 +1,16 @@
 import React from 'react'
+import Page from '../components/Page'
 
-export default (
-  <div>
-    <p>
-      We are thankful each of you are coming to celebrate with us. No gifts,
-      please, we have no where to put them!
-    </p>
-  </div>
+export default () => (
+  <Page
+    idx={4}
+    body={
+      <div>
+        <p>
+          We are thankful each of you is coming to celebrate with us. No gifts,
+          please, your presence is all we need.
+        </p>
+      </div>
+    }
+  />
 )
